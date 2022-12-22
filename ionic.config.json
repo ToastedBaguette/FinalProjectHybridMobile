@@ -1,0 +1,7 @@
+{
+  "name": "HMPUAS",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
