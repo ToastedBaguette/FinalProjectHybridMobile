@@ -1,3 +1,4 @@
-<p>
-  category works!
-</p>
+<ion-list>
+  <ion-title class="ion-text-left" class="ion-margin">Category</ion-title>
+  <ion-button expand="block" *ngFor="let category of categories; let i = index" routerLink="/comiclist/{{category.idkategori}}">{{category.nama}}</ion-button>
+</ion-list>
