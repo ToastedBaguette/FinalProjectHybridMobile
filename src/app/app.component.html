@@ -1,4 +1,26 @@
-<ion-app>
+<ion-app *ngIf="!user_id">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content >
+      <ion-card>
+        <ion-item>
+          <ion-input name="username" type="text" placeholder="Username" [(ngModel)]='login_user'>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input name="password" type="password" placeholder="Password" [(ngModel)]='login_passwd'>
+          </ion-input>
+        </ion-item>
+          <ion-button type="submit" expand="block" (click)='login()'>Login</ion-button>
+        <ion-chip *ngIf="login_error">{{login_error}}</ion-chip>
+    </ion-card>
+  </ion-content>
+</ion-app>
+
+<ion-app *ngIf="user_id">
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
@@ -6,10 +28,16 @@
           <ion-list-header>Inbox</ion-list-header>
           <ion-note>hi@ionicframework.com</ion-note>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+          <!-- <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle> -->
+          <ion-menu-toggle auto-hide="false">
+            <ion-item lines="none" routerDirection="root" [routerLink]="''" detail="false" (click)='logout()'>
+              <ion-icon slot="start" [ios]="'exit-outline'" [md]="'exit-sharp'"></ion-icon>
+              <ion-label>Logout</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
