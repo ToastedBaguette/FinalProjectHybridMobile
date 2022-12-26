@@ -15,4 +15,14 @@ export class ComicService {
     let body = new HttpParams();
     body = body.set('id_kategori', id_kategori);
     return this.http.post(this.webservice + "daftarkomikbykategori.php", body);  }
+
+  selectComicByFavorite(id_user:number):Observable<any> {
+    let body = new HttpParams();
+    body = body.set('id_user', id_user);
+    return this.http.post(this.webservice + "daftarkomikbyfavorit.php", body);  }
+    
+  findComic(cari_komik:string):Observable<any> {
+    let body = new HttpParams();
+    body = body.set('cari', cari_komik);
+    return this.http.post(this.webservice + "carikomik.php", body);  } 
 }

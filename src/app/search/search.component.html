@@ -1,5 +1,11 @@
 <ion-content>
   <ion-row>
+    <ion-input type="text" placeholder="Search" [(ngModel)] = "find_komik" ></ion-input>
+    <ion-button>
+      <ion-icon slot="icon-only" name="add" (click)="findComic()"></ion-icon>
+    </ion-button>
+  </ion-row>
+  <ion-row>
     <ion-col size="6" *ngFor="let comic of comics; let i = index">
       <ion-card>
         <ion-card-header>

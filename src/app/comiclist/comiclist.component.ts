@@ -14,7 +14,7 @@ export class ComiclistComponent implements OnInit {
   constructor(public route:ActivatedRoute, private cs:ComicService) { }
   comics = null;
   message = "";
-  
+
   ngOnInit() {
     var id:number=this.route.snapshot.params['id'];
     this.cs.selectComicByCategory(id).subscribe(
