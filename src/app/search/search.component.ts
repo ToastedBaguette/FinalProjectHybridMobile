@@ -28,6 +28,11 @@ export class SearchComponent implements OnInit {
     });
   }
 
+  addView(){
+    var id:number=this.route.snapshot.params['id'];
+    this.cs.countView(id).subscribe()
+  }
+
   ngOnInit() {
     this.search();
   }

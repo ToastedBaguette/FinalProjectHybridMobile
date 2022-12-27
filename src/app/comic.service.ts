@@ -49,4 +49,29 @@ export class ComicService {
     body = body.set('id_komik', id_komik);
     body = body.set('value', value);
     return this.http.post(this.webservice + "insertrating.php", body);  }
+
+  readSelectedReply(id_komentar:number):Observable<any> {
+    let body = new HttpParams();
+    body = body.set('id_reply', id_komentar);
+    return this.http.post(this.webservice + "bacabalasankomentarterpilih.php", body); 
+  }
+
+  readReply(id_komentar:number):Observable<any> {
+    let body = new HttpParams();
+    body = body.set('id_reply', id_komentar);
+    return this.http.post(this.webservice + "bacabalasankomentar.php", body); 
+  }
+
+  insertReply(id_user:number, id_komik:number, komentar:string, id_reply:number):Observable<any> {
+    let body = new HttpParams();
+    body = body.set('id_user', id_user);
+    body = body.set('id_komik', id_komik);
+    body = body.set('komentar', komentar);
+    body = body.set('id_reply', id_reply);
+    return this.http.post(this.webservice + "insertkomentarbalasan.php", body);  }
+
+  countView(comic_id:number):Observable<any> {
+    let body = new HttpParams();
+    body = body.set('id_komik', comic_id);
+    return this.http.post(this.webservice + "lihatview.php", body);  }
 }

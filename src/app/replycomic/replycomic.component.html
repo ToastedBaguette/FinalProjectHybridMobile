@@ -1,3 +1,28 @@
-<p>
-  replycomic works!
-</p>
+<ion-content>
+  <div class="ion-margin">
+    <h1><b>Komentar</b></h1>
+    <div *ngFor="let comment of comments; let i = index">
+      <ion-text>
+        <h3>{{comment.nama}}</h3>
+      </ion-text>
+      <ion-text color="medium">
+        <p>{{comment.komentar}}</p>
+      </ion-text>
+    </div>
+  </div>
+  <div class="ion-margin">
+    <h2><b>Balasan</b></h2>
+    <div *ngFor="let reply of replycomments; let i = index">
+      <ion-text>
+        <h5>{{reply.nama}}</h5>
+      </ion-text>
+      <ion-text color="medium">
+        <p>{{reply.komentar}}</p>
+      </ion-text>
+    </div>
+    <ion-input type="text" placeholder="Tulis Komentar" [(ngModel)]="comment"></ion-input> 
+    <ion-button expand="block" shape="round" (click)="writeReply()">
+      Send
+    </ion-button>
+  </div>
+</ion-content>

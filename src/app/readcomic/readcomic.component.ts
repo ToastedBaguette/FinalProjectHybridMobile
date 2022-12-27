@@ -30,6 +30,9 @@ export class ReadcomicComponent implements OnInit {
         }
     });
 
+    this.cs.countView(this.id_komik).subscribe()
+
+
     this.cs.readComment(this.id_komik).subscribe(
       (data) => {
         if(data['result'] == 'success'){

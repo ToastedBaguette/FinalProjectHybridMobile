@@ -26,6 +26,9 @@
     <ion-text color="medium">
       <p>{{comment.komentar}}</p>
     </ion-text>
+    <ion-button fill="clear" routerLink = "/replykomentar/{{comment.id}}/{{id_komik}}">
+      Reply
+    </ion-button>
   </div>
   <ion-input type="text" placeholder="Tulis Komentar" [(ngModel)]="comment"></ion-input> 
   <ion-button expand="block" shape="round" (click)="writeComment()">
