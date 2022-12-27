@@ -1,0 +1,36 @@
+<ion-content>
+<ion-img *ngFor="let comic of comics; let i = index" [src]="comic.url_halaman"></ion-img>
+<div class="ion-margin">
+  <h1><b>Rating</b></h1>
+  <ion-row>
+    <ion-range
+      min="0" max="5" pin="true"
+      snaps="true" step="1"
+      ticks="true" value="0"
+      color="warning" [(ngModel)] = "rating_value">
+      <ion-icon slot="start" name="star-outline" color="warning"></ion-icon>
+      <ion-icon slot="end" name="star" color="warning"></ion-icon>
+    </ion-range>
+  </ion-row>
+  <ion-button expand="block" shape="round" (click)="rate()" color="warning">
+    Rate
+  </ion-button>
+</div>
+
+<div class="ion-margin">
+  <h1><b>Komentar</b></h1>
+  <div *ngFor="let comment of comments; let i = index">
+    <ion-text>
+      <h4>{{comment.nama}}</h4>
+    </ion-text>
+    <ion-text color="medium">
+      <p>{{comment.komentar}}</p>
+    </ion-text>
+  </div>
+  <ion-input type="text" placeholder="Tulis Komentar" [(ngModel)]="comment"></ion-input> 
+  <ion-button expand="block" shape="round" (click)="writeComment()">
+    Send
+  </ion-button>
+</div>
+
+</ion-content>

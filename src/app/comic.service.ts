@@ -24,5 +24,29 @@ export class ComicService {
   findComic(cari_komik:string):Observable<any> {
     let body = new HttpParams();
     body = body.set('cari', cari_komik);
-    return this.http.post(this.webservice + "carikomik.php", body);  } 
+    return this.http.post(this.webservice + "carikomik.php", body);  }
+
+  readComic(id_komik:number):Observable<any> {
+    let body = new HttpParams();
+    body = body.set('id_komik', id_komik);
+    return this.http.post(this.webservice + "bacakomik.php", body);  }
+
+  readComment(id_komik:number):Observable<any> {
+    let body = new HttpParams();
+    body = body.set('id_komik', id_komik);
+    return this.http.post(this.webservice + "bacakomentar.php", body);  }
+  
+  writeComment(id_user:number, id_komik:number, komentar:string):Observable<any> {
+    let body = new HttpParams();
+    body = body.set('id_user', id_user);
+    body = body.set('id_komik', id_komik);
+    body = body.set('komentar', komentar);
+    return this.http.post(this.webservice + "insertkomentar.php", body);  }
+
+  insertRate(id_user:number, id_komik:number, value:number):Observable<any> {
+    let body = new HttpParams();
+    body = body.set('id_user', id_user);
+    body = body.set('id_komik', id_komik);
+    body = body.set('value', value);
+    return this.http.post(this.webservice + "insertrating.php", body);  }
 }

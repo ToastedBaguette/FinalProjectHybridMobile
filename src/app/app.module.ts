@@ -15,16 +15,18 @@ import { CategoryComponent } from './category/category.component';
 import { ComiclistComponent } from './comiclist/comiclist.component';
 import { FavoritelistComponent } from './favoritelist/favoritelist.component';
 import { SearchComponent } from './search/search.component';
+import { ReadcomicComponent } from './readcomic/readcomic.component';
 
 const appRoutes = [
   { path: 'category', component: CategoryComponent },
   { path: 'comiclist/:id', component: ComiclistComponent },
   { path: 'favoritelist', component: FavoritelistComponent },
   { path: 'search', component: SearchComponent },
+  { path: 'readcomic/:id', component: ReadcomicComponent}
 ];
 
 @NgModule({
-  declarations: [AppComponent, CategoryComponent, ComiclistComponent, FavoritelistComponent, SearchComponent],
+  declarations: [AppComponent, CategoryComponent, ComiclistComponent, FavoritelistComponent, SearchComponent, ReadcomicComponent],
   imports: [IonicStorageModule.forRoot(), BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
