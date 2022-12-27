@@ -16,27 +16,18 @@ export class SearchComponent implements OnInit {
 
   constructor(public route:ActivatedRoute, private cs:ComicService) { }
 
+  test() {
+    this.cs.findComic(this.find_komik).subscribe(
+      (data) => {
+        if(data['result'] == 'success'){
+          this.comics=data['data'];
+          }else{
+          this.message=data['result'];
+        }
+    });
+  }
+
   ngOnInit() {
-    this.cs.findComic(this.find_komik).subscribe(
-      (data) => {
-        if(data['result'] == 'success'){
-          this.comics=data['data'];
-          }else{
-          this.message=data['result'];
-        }
-    });
+    this.test();
   }
-
-  findComic() {
-    this.cs.findComic(this.find_komik).subscribe(
-      (data) => {
-        if(data['result'] == 'success'){
-          this.comics = null;
-          this.comics=data['data'];
-          }else{
-          this.message=data['result'];
-        }
-    });
-  }
-
 }
