@@ -51,6 +51,8 @@ export class ReplycomicComponent implements OnInit {
           this.replycomments=data['data'];
         }
     });
+
+    this.cs.addComment(this.id_komik).subscribe()
   }
 
 }

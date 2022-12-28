@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute  } from '@angular/router';
 import { ComicService } from '../comic.service';
 
@@ -7,7 +7,6 @@ import { ComicService } from '../comic.service';
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Default
 })
 export class SearchComponent implements OnInit {
   comics = null;
@@ -26,11 +25,6 @@ export class SearchComponent implements OnInit {
           this.comics = null;
         }
     });
-  }
-
-  addView(){
-    var id:number=this.route.snapshot.params['id'];
-    this.cs.countView(id).subscribe()
   }
 
   ngOnInit() {

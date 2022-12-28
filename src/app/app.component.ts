@@ -9,20 +9,12 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class AppComponent {
   user_id="";
+  name = "";
 
   login_user="";
   login_passwd="";
   login_error="";
 
-  public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
-  ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(private us: UserService, private storage:Storage) {}
 
   login(){
@@ -30,7 +22,10 @@ export class AppComponent {
       (data) => {
         if(data['result'] == 'success'){
           this.user_id=data['data']['iduser'];
+          this.name = data['data']['nama'];
           this.storage.set('user_id',this.user_id);
+          this.storage.set('name',this.name);
+
         }else{
           this.login_error=data['message'];
         }
@@ -46,5 +41,6 @@ export class AppComponent {
   async ngOnInit(){
     await this.storage.create();
     this.user_id = await this.storage.get("user_id");
+    this.name = await this.storage.get("name");
   }
 }

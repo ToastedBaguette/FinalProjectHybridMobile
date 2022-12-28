@@ -1,4 +1,10 @@
 <ion-content>
+  <ion-fab vertical="bottom"  horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addFavorite()">
+      <ion-icon name="heart"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 <ion-img *ngFor="let comic of comics; let i = index" [src]="comic.url_halaman"></ion-img>
 <div class="ion-margin">
   <h1><b>Rating</b></h1>

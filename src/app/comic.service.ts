@@ -20,6 +20,10 @@ export class ComicService {
     let body = new HttpParams();
     body = body.set('id_user', id_user);
     return this.http.post(this.webservice + "daftarkomikbyfavorit.php", body);  }
+
+  selectComicByPopularity():Observable<any> {
+    let body = new HttpParams();
+    return this.http.post(this.webservice + "daftarkomikbypopularity.php", body);  }
     
   findComic(cari_komik:string):Observable<any> {
     let body = new HttpParams();
@@ -74,4 +78,16 @@ export class ComicService {
     let body = new HttpParams();
     body = body.set('id_komik', comic_id);
     return this.http.post(this.webservice + "lihatview.php", body);  }
+
+  addComment(comic_id:number):Observable<any> {
+    let body = new HttpParams();
+    body = body.set('id_komik', comic_id);
+    return this.http.post(this.webservice + "lihatkomentar.php", body);  }
+
+  addFavorite(comic_id:number, user_id:number):Observable<any> {
+    let body = new HttpParams();
+    body = body.set('id_komik', comic_id);
+    body = body.set('id_user', user_id);
+    return this.http.post(this.webservice + "tambahfavorit.php", body);  }
+  
 }
