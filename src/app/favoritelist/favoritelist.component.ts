@@ -16,7 +16,7 @@ export class FavoritelistComponent implements OnInit {
 
   async ngOnInit() {
     await this.storage.create();
-      var user_id = await this.storage.get("user_id");
+    var user_id = await this.storage.get("user_id");
     this.cs.selectComicByFavorite(user_id).subscribe(
       (data) => {
         if(data['result'] == 'success'){
